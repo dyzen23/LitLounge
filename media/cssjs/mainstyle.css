@@ -1,0 +1,330 @@
+/* The following CSS applies on all screen sizes */
+
+/* Colors and fonts */
+:root {
+    /* Fonts */
+    --bodyfont: sans-serif;
+    --headerfont: Georgia, serif;
+
+    /* Main colors */
+    --background:#6a994e; /* Page background */
+    --color:#386641;
+    --block:#f9f8f9; /* Background color for the grid blocks in the content */
+
+    --link:#7e292a;
+    --linkhover:#cf5b5d;
+
+    --h1:#2a4e31;
+    --h2:#315939;
+    --h3:#386641;
+    --h4:#41794c;
+
+    /* Sidebar colors */
+    --sidebar:#f9f8f9;
+    --sidebarcolor:#162f15;
+    --title: #095a15;
+    --sidebarlink: #115a09;
+    --sidebarlinkhover:#49a951;
+
+    /* Menu colors */
+    --menubg:#20301a;
+    --menucolor:#b1e2ae;
+    --menubghover:#aee2b1;
+    --menucolorhover:#1b301a;
+}
+
+* { margin:0; padding:0; }
+
+/* Main body styling */
+body {
+    background-color:var(--background);
+    background-attachment:fixed;
+    font:1rem sans-serif;
+    color:var(--color);
+}
+
+/* Rounded corners - feel free to get rid of this or change it */
+
+main section, #sidebar-content, #main-footer {
+    border-radius:5px;
+}
+
+/* Sidebar styling */
+
+#sidebar-content {
+    text-align:center;
+    background: var(--sidebar);
+    color: var(--sidebarcolor);
+    padding:10px;
+}
+
+#sidebar-content header {
+    color:var(--title);
+    font:1.8em var(--headerfont);
+    margin:8px;
+}
+
+#sidebar-content under-header {
+    font:1em var(--headerfont);
+    color:var(--h3);
+}
+
+#sidebar-content p a {
+    color:var(--sidebarlink);
+    transition:0.5s ease;
+}
+
+#sidebar-content p a:hover {
+    color:var(--sidebarlinkhover);
+    transition:0.5s ease;
+}
+
+.icon img {
+    border-radius:100%; /* This makes the icon a circle - feel free to remove or reduce for a rectangle or square */
+    max-width:150px; /* This can be changed to make the icon smaller; you might have to mess with the border radius too */
+}
+
+/* Styling for the menu */
+
+#main-menu {
+    font:1.1em var(--headerfont);
+    width:100%;
+}
+
+#main-menu h3 {
+    color: var(--h3);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#main-menu ul {
+    list-style:none;
+}
+
+#main-menu li a {
+    padding:7px;
+    background:var(--menubg);
+    color:var(--menucolor);
+    text-decoration:none;
+    transition:0.5s ease;
+}
+
+#main-menu li a:hover, #main-menu li a:focus {
+    background: var(--menubghover);
+    color:var(--menucolorhover);
+    transition:0.5s ease;
+}
+
+/* Content styling */
+
+main {
+    margin-top:10px;
+}
+
+/* Styling for blocks */
+
+main section, #main-footer {
+    padding:15px;
+    background:var(--block);
+    margin-bottom:10px;
+}
+
+main h1 {
+    font:1.8em var(--headerfont);
+    color:var(--h1);
+}
+
+main h2 {
+    font:1.5em var(--headerfont);
+    color:var(--h2);
+}
+
+main h3 {
+    font:1.3em var(--headerfont);
+    color:var(--h3);
+}
+
+main h4 {
+    font:1em var(--headerfont);
+    font-style:italic;
+    color:var(--h4);
+}
+
+p {
+    line-height:1.5;
+    margin:10px 0 10px 0;
+}
+
+main a {
+    color:var(--link);
+    transition:0.5s ease;
+}
+
+main a:hover, main a:focus {
+    color:var(--linkhover);
+    transition:0.5s ease;
+}
+
+main ul {
+    list-style-position: outside;
+    margin-left: 25px;
+}
+
+main ul li {
+    line-height:1.5;
+}
+
+main input, textarea, select, button { 
+    background: var(--block);  
+    color: var(--color);
+    font: 1rem var(--bodyfont); 
+    border: 1px solid; 
+    padding: 8px; 
+    margin: 2px;
+}
+
+#main-footer {
+    text-align:center;
+}
+
+/* The following CSS ONLY applies to mobile/small screens */
+
+/* Container styling */
+#container {
+    width: calc(100% - 20px);
+    padding:10px;
+    margin-top:10px;
+}
+
+#sidebar-content {
+    width: calc(100% - 20px);
+}
+
+#main-menu li {
+    margin-bottom:15px;
+    display:inline-block;
+}
+
+/* Skip to content button */
+
+#skip a {
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:-1000px;
+    overflow:hidden;
+    transition:top 0.5s ease;
+    background:var(--block);
+    color:var(--link);
+    z-index:1000;
+    padding:5px;
+}
+ 
+#skip a:focus {
+    top: 0;
+    transition:top 0.5s ease;
+}
+
+/* The following CSS ONLY applies to desktop/big screens */
+
+@media screen and (min-width: 800px) {
+    #container {
+        max-width:950px;
+        width:90%;
+        margin:25px auto;
+        display:flex;
+        gap:20px;
+    }
+
+    #sidebar {
+        flex: 1 1 calc(25% - 20px);
+        margin-top:10px;
+    }
+    
+    /* Remove or comment out this block if you don't want a sticky sidebar */
+    #sidebar-content {
+        position:sticky;
+        top:10px;
+    }
+
+    /* Make menu links into a column */
+
+    #main-menu li {
+        display:block;
+        margin:0;
+    }
+
+    #main-menu li a {
+        display:block;
+        border-bottom:1px solid;
+    }
+
+    main {
+        flex: 1 1 calc(75% - 30px);
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    main section {
+        margin:0;
+    }
+    
+    #main-footer {
+        flex: 1 1 calc(100% - 40px);
+    }
+
+    /* Defining grid blocks */
+
+    .full { flex: 1 1 calc(100% - 40px);}
+    .half { flex: 1 1 calc(50% - 40px); }
+    .third { flex: 1 1 calc(33% - 40px); }
+    .twothird { flex: 1 1 calc(66% - 40px); }
+    .quarter { flex: 1 1 calc(25% - 40px); }
+    .threequarter { flex: 1 1 calc(75% - 40px); }
+}
+
+    /*Image Grid*/
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+.column {
+    flex: 48%;
+    max-width: 48%;
+    position: relative;
+    display: inline-block;
+    padding: 2px;
+}
+.column img {
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 5px;
+    height: auto;
+}
+
+   /*Image Hover Effect*/
+
+.overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(171, 255, 170, 0.6); /* semi-transparent overlay */
+    color: rgb(0, 0, 0);
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.column:hover .overlay-text {
+    opacity: 1;
+}
